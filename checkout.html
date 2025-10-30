@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeSoft – Checkout</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- OPTIONAL: your own colours -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ================= PROGRESS BAR ================= -->
+  <div class="container my-4">
+    <nav aria-label="Checkout progress">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Cart</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        <li class="breadcrumb-item text-muted">Payment</li>
+        <li class="breadcrumb-item text-muted">Review</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- ================= MAIN LAYOUT ================= -->
+  <div class="container">
+    <form id="checkoutForm" novalidate>
+      <div class="row g-4">
+        <!-- LEFT: Forms  -->
+        <div class="col-12 col-lg-7">
+          <!-- Customer & Shipping -->
+          <section class="card mb-4">
+            <div class="card-header bg-transparent"><h5 class="mb-0">User Details</h5></div>
+            <div class="card-body">
+              <div class="row g-3">
+                <!-- full name -->
+                <div class="col-12"><div class="form-floating"><input type="text" class="form-control" id="fullname" required><label for="fullname">Full Name</label></div></div>
+                <!-- email -->
+                <div class="col-12 col-md-6"><div class="form-floating"><input type="email" class="form-control" id="email" required><label for="email">Email</label></div></div>
+                <!-- phone -->
+                <div class="col-12 col-md-6"><div class="form-floating"><input type="tel" class="form-control" id="phone" required><label for="phone">Phone</label></div></div>
+                <!-- address -->
+                <div class="col-12"><div class="form-floating"><input type="text" class="form-control" id="address" required><label for="address">Street Address</label></div></div>
+                <!-- city -->
+                <div class="col-12 col-md-5"><div class="form-floating"><input type="text" class="form-control" id="city" required><label for="city">City</label></div></div>
+                <!-- postal -->
+                <div class="col-12 col-md-4"><div class="form-floating"><input type="text" class="form-control" id="postal" required><label for="postal">Postal Code</label></div></div>
+                <!-- country -->
+                <div class="col-12 col-md-3"><div class="form-floating"><select class="form-select" id="country" required><option value="">Country</option><option>Pakistan</option><option>USA</option></select><label for="country">Country</label></div></div>
+                <!-- checkbox -->
+                <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="sameBilling"><label class="form-check-label" for="sameBilling">Billing address is the same</label></div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Payment -->
+          <section class="card mb-4">
+            <div class="card-header bg-transparent"><h5 class="mb-0">Payment Method</h5></div>
+            <div class="card-body">
+              <div class="form-check mb-2"><input class="form-check-input" type="radio" name="payMethod" id="card" checked><label class="form-check-label" for="card">Credit / Debit Card</label></div>
+              <div class="form-check mb-2"><input class="form-check-input" type="radio" name="payMethod" id="cod"><label class="form-check-label" for="cod">Cash on Delivery</label></div>
+              <div class="form-check mb-3"><input class="form-check-input" type="radio" name="payMethod" id="wallet"><label class="form-check-label" for="wallet">Digital Wallet</label></div>
+
+              <!-- Card fields (only show when Card is selected) -->
+              <div id="cardDetails">
+                <div class="row g-3">
+                  <div class="col-12"><div class="form-floating"><input type="text" class="form-control" id="cardName"><label for="cardName">Cardholder Name</label></div></div>
+                  <div class="col-12"><div class="form-floating"><input type="text" class="form-control" id="cardNum" maxlength="19" placeholder="1234 5678 9012 3456"><label for="cardNum">Card Number</label></div></div>
+                  <div class="col-6"><div class="form-floating"><input type="text" class="form-control" id="exp" placeholder="MM/YY"><label for="exp">MM/YY</label></div></div>
+                  <div class="col-6"><div class="form-floating"><input type="text" class="form-control" id="cvv" maxlength="3"><label for="cvv">CVV</label></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Review & Place -->
+          <section class="card mb-4 mb-lg-0">
+            <div class="card-body">
+              <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="terms" required><label class="form-check-label" for="terms">I agree to the <a href="#">terms & conditions</a></label><div class="invalid-feedback">You must agree before placing the order.</div></div>
+              <button class="btn btn-success btn-lg w-100" type="submit" id="placeOrder" disabled>Place Order</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT: Sticky Order Summary -->
+        <div class="col-12 col-lg-5">
+          <aside class="card position-sticky top-0">
+            <div class="card-header bg-transparent"><h5 class="mb-0">Payment Summary</h5></div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between"><div><strong>Basic Plan × 1</strong></div><span>$299</span></li>
+                <li class="list-group-item d-flex justify-content-between"><div><strong>Extra Module × 2</strong></div><span>$120</span></li>
+              </ul>
+              <div class="input-group my-3"><input type="text" class="form-control" placeholder="Coupon code"><button class="btn btn-outline-secondary">Apply</button></div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">Subtotal <span>$419</span></li>
+                <li class="list-group-item d-flex justify-content-between">Shipping <span>$0.00</span></li>
+                <li class="list-group-item d-flex justify-content-between">Tax <span>$37.71</span></li>
+                <li class="list-group-item d-flex justify-content-between fw-bold">Total <span>$456.71</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS + validation -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* ----- Enable Place Order only after terms check ----- */
+    document.getElementById('terms').addEventListener('change', e => {
+      document.getElementById('placeOrder').disabled = !e.target.checked;
+    });
+
+    /* ----- Toggle card fields visibility ----- */
+    document.querySelectorAll('input[name="payMethod"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('cardDetails').classList.toggle('d-none', r.id !== 'card');
+      });
+    });
+
+    /* ----- Bootstrap client-side validation ----- */
+    document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+      if (!this.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
+      this.classList.add('was-validated');
+    }, false);
+  </script>
+</body>
+</html>

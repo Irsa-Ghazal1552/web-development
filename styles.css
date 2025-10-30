@@ -569,3 +569,59 @@ body{
     flex: 1 1 100%;                 /* stack single column */
   }
 }
+
+
+/* ===== checkout.html extras ===== */
+:root {
+  --accent: #ffb400;   /* BeSoft yellow */
+  --dark: #222;
+  --grey: #555;
+}
+
+/* --- sticky summary shadow --- */
+aside.card.position-sticky {
+  top: 20px !important;        /* little gap from screen top */
+  box-shadow: 0 4px 18px rgba(0,0,0,.06);
+}
+
+/* --- green “Place Order” button --- */
+.btn-success {
+  background-color: #34a853;
+  border-color: #34a853;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: background-color .25s;
+}
+.btn-success:hover {
+  background-color: #2e9449;
+  border-color: #2e9449;
+}
+
+/* --- yellow “Apply coupon” outline --- */
+.btn-outline-secondary {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.btn-outline-secondary:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* --- breadcrumb (progress) styling --- */
+.breadcrumb-item a { color: var(--grey); }
+.breadcrumb-item.active { color: var(--dark); font-weight: 600; }
+
+/* --- remove blue glow on inputs to keep palette clean --- */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 .2rem rgba(255, 180, 0, .25);
+}
+
+/* --- card headers --- */
+.card-header {
+  border-bottom: 1px solid #eaeaea;
+  font-weight: 600;
+}
