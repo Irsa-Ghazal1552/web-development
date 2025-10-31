@@ -109,27 +109,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery 3.7 CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script>
-    /* ----- Enable Place Order only after terms check ----- */
-    document.getElementById('terms').addEventListener('change', e => {
-      document.getElementById('placeOrder').disabled = !e.target.checked;
-    });
-
-    /* ----- Toggle card fields visibility ----- */
-    document.querySelectorAll('input[name="payMethod"]').forEach(r => {
-      r.addEventListener('change', () => {
-        document.getElementById('cardDetails').classList.toggle('d-none', r.id !== 'card');
-      });
-    });
-
-    /* ----- Bootstrap client-side validation ----- */
-    document.getElementById('checkoutForm').addEventListener('submit', function (e) {
-      if (!this.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
-      this.classList.add('was-validated');
-    }, false);
-  </script>
-
-
+  
 
 <script>
 $(function () {

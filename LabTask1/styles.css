@@ -505,25 +505,26 @@ body{
 
 /* ---------- FOOTER WRAPPER ---------- */
 .footer {
-  display: flex;                    /* 4 columns side-by-side */
-  justify-content: space-between;   /* equal space between columns */
-  padding: 60px 150px;              /* generous top/bottom & side spacing */
-  background-color: #09142f;        /* clean white background */
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 150px;
+  background-color: #0b1530; /* darker blue */
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 /* ---------- SINGLE COLUMN ---------- */
-.footer > div {                     /* targets .pt1, .pt2, .pt3, .pt4 */
-  flex: 1 1 0;                      /* equal width columns */
-  min-width: 0;                     /* prevent flex overflow */
+.footer > div {
+  flex: 1 1 22%;
+  min-width: 200px;
 }
 
 /* column headings */
 .footer h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #f9f8f8;                   /* charcoal black */
+  color: #ffffff;
   margin: 0 0 18px;
 }
 
@@ -537,38 +538,61 @@ body{
 /* list items */
 .footer li {
   margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px; /* space for arrow */
+}
+
+/* custom arrow bullets */
+.footer li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #13c7c2; /* teal arrow */
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 /* links */
 .footer a {
   font-size: 14px;
   font-weight: 400;
-  color: #f7f1f1;                   /* mid grey text */
+  color: #f7f1f1;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer a:hover {
-  color: #6d6767;                   /* charcoal on hover */
+  color: #13c7c2;
+}
+
+/* ---------- COPYRIGHT SECTION ---------- */
+.footer-bottom {
+  background-color: #081027;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 13px;
+  color: #b5b5b5;
+  border-top: 1px solid #111a33;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
   .footer {
-    flex-wrap: wrap;                /* allow wrapping */
+    flex-wrap: wrap;
     padding: 40px 30px;
     gap: 40px;
   }
   .footer > div {
-    flex: 1 1 45%;                  /* 2 columns per row */
+    flex: 1 1 45%;
   }
 }
 
 @media (max-width: 500px) {
   .footer > div {
-    flex: 1 1 100%;                 /* stack single column */
+    flex: 1 1 100%;
   }
 }
+
 
 
 /* ===== checkout.html extras ===== */
