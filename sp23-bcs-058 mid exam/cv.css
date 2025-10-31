@@ -1,0 +1,243 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: arial, helvetica, sans-serif;
+}
+
+/*-------------------Header-----------------------*/
+.header {
+  background-color: white;
+  color: black;
+}
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+.logoIMG img {
+  height: 35px;
+  width: auto;
+  display: block;
+  margin-left: 170px;
+}
+.logo {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 200px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  flex-shrink: 0;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.nav-list a {
+  color: rgb(157, 151, 151);
+  text-decoration: none;
+  font-size: 12px;
+  transition: black 0.3s;
+}
+.nav-list a:hover {
+  color: black;
+}
+.nav-toggle {
+  display: none;
+}
+
+/* ===== CV PAGE STYLES ===== */
+.cv-section {
+  padding: 100px 150px;
+  background-color: #f9f9f9;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.cv-heading {
+  font-size: 40px;
+  font-weight: 700;
+  color: #13c7c2;
+  margin-bottom: 60px;
+}
+
+/* --- FIXED GRID SPACING & VISIBILITY --- */
+.cv-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 60px 50px;         /* more vertical + horizontal spacing */
+  justify-items: center;
+  position: relative;
+  overflow: visible;      /* allow popups to expand outside */
+}
+
+.cv-item {
+  position: relative;
+  background-color: white;
+  border: 2px solid #13c7c2;
+  padding: 70px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px;
+  overflow: visible;      /* prevents hiding */
+  z-index: 1;             /* base layer */
+}
+
+.cv-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 5;             /* brings hovered card to front */
+}
+
+.cv-item h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+/* Hidden popup info */
+.cv-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 199, 194, 0.97);
+  color: white;
+  border-radius: 15px;
+  padding: 25px;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.cv-item:hover .cv-details {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.cv-details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cv-details p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .cv-section {
+    padding: 60px 30px;
+  }
+}
+
+/* ---------- FOOTER WRAPPER ---------- */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 150px;
+  background-color: #0b1530; /* darker blue */
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* ---------- SINGLE COLUMN ---------- */
+.footer > div {
+  flex: 1 1 22%;
+  min-width: 200px;
+}
+
+/* column headings */
+.footer h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 18px;
+}
+
+/* unordered lists */
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* list items */
+.footer li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px; /* space for arrow */
+}
+
+/* custom arrow bullets */
+.footer li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #13c7c2; /* teal arrow */
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* links */
+.footer a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #f7f1f1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: #13c7c2;
+}
+
+/* ---------- COPYRIGHT SECTION ---------- */
+.footer-bottom {
+  background-color: #081027;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 13px;
+  color: #b5b5b5;
+  border-top: 1px solid #111a33;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .footer {
+    flex-wrap: wrap;
+    padding: 40px 30px;
+    gap: 40px;
+  }
+  .footer > div {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer > div {
+    flex: 1 1 100%;
+  }
+}
