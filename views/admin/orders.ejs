@@ -1,0 +1,23 @@
+<h2>Admin Orders Dashboard</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Customer</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <% orders.forEach(order => { %>
+    <tr>
+      <td><%= order._id %></td>
+      <td><%= order.customerName %></td>
+      <td><%= order.totalAmount %></td>
+      <td><%= order.status %></td>
+      <td>
+        <a href="/admin/orders/confirm/<%= order._id %>">Confirm</a> |
+        <a href="/admin/orders/cancel/<%= order._id %>">Cancel</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

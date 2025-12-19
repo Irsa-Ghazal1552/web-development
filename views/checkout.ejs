@@ -1,0 +1,17 @@
+<h2>Checkout</h2>
+
+<ul>
+  <% cart.items.forEach(item => { %>
+    <li>
+      <%= item.product.name %> - Qty: <%= item.quantity %> - Price: <%= item.price %>
+    </li>
+  <% }) %>
+</ul>
+
+<p>Total: <strong><%= cart.total %></strong></p>
+
+<form method="POST" action="/lab-final/checkout">
+  <input name="customerName" placeholder="Name" required />
+  <input name="email" placeholder="Email" required />
+  <button>Place Order</button>
+</form>
